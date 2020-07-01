@@ -10,7 +10,8 @@ project "stb"
     files
     {
         "include/stb/**.h",
-        "include/stb/stb_impl.c"
+        "include/stb/**.c",
+        "include/stb_util_impl.c"
     }
 
     filter "configurations:Debug"
