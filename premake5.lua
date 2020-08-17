@@ -17,13 +17,16 @@ project "stb"
     filter "configurations:Debug"
         runtime "Debug"
         symbols "on"
+        optimize "off"
 
     filter "configurations:Release"
         runtime "Release"
+        symbols "on"
         optimize "on"
 
     filter "configurations:Dist"
         runtime "Release"
+        symbols "off"
         optimize "on"
 
         defines
