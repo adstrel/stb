@@ -1,8 +1,7 @@
 project "stb"
     kind "StaticLib"
     language "C"
-    
-    staticruntime "on"
+    staticruntime "On"
     
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
     objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -16,18 +15,29 @@ project "stb"
 
     filter "configurations:Debug"
         runtime "Debug"
-        symbols "on"
-        optimize "off"
+        optimize "Off"
+        symbols "On"
 
     filter "configurations:Release"
         runtime "Release"
-        symbols "on"
-        optimize "on"
+        optimize "Speed"
+        vectorextensions "AVX2"
+        symbols "On"
+        flags
+        {
+            "LinkTimeOptimization"
+        }
 
     filter "configurations:Dist"
         runtime "Release"
-        symbols "off"
-        optimize "on"
+        optimize "Speed"
+        vectorextensions "AVX2"
+        symbols "Off"
+        flags
+        {
+            "LinkTimeOptimization",
+            "FatalWarnings"
+        }
 
         defines
         {
